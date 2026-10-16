@@ -1,59 +1,84 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bitcoin Mining Dashboard</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #101522;
-      color: white;
-      text-align: center;
-    }
-    header {
-      background: #202a3d;
-      padding: 24px 12px;
-    }
-    h1 { color: #f7931a; }
-    main { padding: 24px 16px; }
-    .card {
-      background: #202a3d;
-      border-radius: 12px;
-      padding: 22px;
-      margin: 16px auto;
-      max-width: 420px;
-    }
-    .value {
-      font-size: 25px;
-      color: #f7931a;
-      font-weight: bold;
-    }
-    .note { color: #b9c2d3; font-size: 14px; }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Bitcoin cloud mining dashboard starter demo">
+  <title>BTC Cloud — Mining Dashboard Demo</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>₿ Bitcoin Mining</h1>
-    <p>Your Mining Dashboard</p>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="coin">₿</span><span>BTC<span class="blue">Cloud</span><small>MINING DASHBOARD DEMO</small></span></a>
+    <nav><a href="#dashboard">Dashboard</a><a href="#plans">Plans</a><a href="#withdraw">Withdraw</a></nav>
+    <span class="demo-tag">DEMO MODE</span>
   </header>
+
   <main>
-    <div class="card">
-      <h2>Mining Status</h2>
-      <p class="value">Not Connected</p>
-      <p class="note">No mining hardware connected yet.</p>
-    </div>
-    <div class="card">
-      <h2>Bitcoin Balance</h2>
-      <p class="value">0.00000000 BTC</p>
-      <p class="note">Your real mining balance will appear here when connected.</p>
-    </div>
-    <div class="card">
-      <h2>Hashrate</h2>
-      <p class="value">0 TH/s</p>
-      <p class="note">Waiting for mining hardware.</p>
-    </div>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">CLOUD MINING • STARTER TEMPLATE</p>
+        <h1>Explore Bitcoin<br><span>Cloud Mining</span></h1>
+        <p class="intro">A clean starter dashboard for a cloud-mining service. This preview uses sample data only; it does not mine Bitcoin or send payments.</p>
+        <div class="actions"><a class="button primary" href="#plans">Explore plans</a><a class="button secondary" href="#withdraw">Withdrawal demo</a></div>
+        <div class="trust"><span>✓ Sample dashboard</span><span>✓ Mobile friendly</span><span>✓ No private keys stored</span></div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="server server-a"></div><div class="server server-b"></div><div class="server server-c"></div>
+        <div class="bigcoin">₿</div><div class="glow"></div>
+      </div>
+    </section>
+
+    <section class="notice"><strong>Demo only:</strong> balances and hashrate below are illustrative placeholders, not real earnings or a promise of returns.</section>
+
+    <section id="dashboard" class="section">
+      <div class="section-heading"><div><p class="eyebrow">OVERVIEW</p><h2>Your dashboard</h2></div><span class="pill">Sample data</span></div>
+      <div class="stats">
+        <article class="stat"><span class="stat-icon">ϟ</span><p>Hashrate</p><h3>0 TH/s</h3><small>Connect a real provider to show actual data</small></article>
+        <article class="stat"><span class="stat-icon">₿</span><p>Demo balance</p><h3>0.00000000 BTC</h3><small>Not a spendable balance</small></article>
+        <article class="stat"><span class="stat-icon">↗</span><p>Estimated earnings</p><h3>Not connected</h3><small>No mining provider connected</small></article>
+      </div>
+    </section>
+
+    <section id="plans" class="section">
+      <div class="section-heading"><div><p class="eyebrow">GET STARTED</p><h2>Mining plan layout</h2></div></div>
+      <div class="plans">
+        <article class="plan featured"><span class="pill">Demo</span><h3>Free Preview</h3><p class="price">$0 <small>/ demo</small></p><ul><li>Sample dashboard</li><li>Plan UI preview</li><li>Test withdrawal request</li></ul><button class="button primary choose-plan" data-plan="Free Preview">Select demo</button></article>
+        <article class="plan"><span class="pill muted">Placeholder</span><h3>Starter</h3><p class="price">Not available</p><ul><li>Provider integration required</li><li>Real contract details required</li><li>Costs and risks must be disclosed</li></ul><button class="button secondary choose-plan" data-plan="Starter">Preview plan</button></article>
+        <article class="plan"><span class="pill muted">Placeholder</span><h3>Pro</h3><p class="price">Not available</p><ul><li>Real hashrate verification</li><li>Transparent fees</li><li>Auditable payout records</li></ul><button class="button secondary choose-plan" data-plan="Pro">Preview plan</button></article>
+      </div>
+      <p id="plan-message" class="inline-message" aria-live="polite"></p>
+    </section>
+
+    <section id="withdraw" class="section">
+      <div class="section-heading"><div><p class="eyebrow">PAYOUT INTERFACE</p><h2>Withdrawal request demo</h2></div></div>
+      <div class="withdraw-layout">
+        <div class="panel">
+          <h3>Request a withdrawal</h3>
+          <p class="muted-text">This form validates basic input and saves nothing to a server. It will not send Bitcoin.</p>
+          <form id="withdraw-form">
+            <label for="wallet">Bitcoin address</label>
+            <input id="wallet" name="wallet" autocomplete="off" placeholder="Enter a BTC address" required minlength="14" maxlength="100">
+            <label for="amount">Amount (BTC)</label>
+            <input id="amount" name="amount" type="number" min="0.00000001" step="0.00000001" placeholder="0.00000000" required>
+            <button class="button primary" type="submit">Preview request</button>
+          </form>
+          <p id="withdraw-message" class="inline-message" aria-live="polite"></p>
+        </div>
+        <aside class="panel checklist">
+          <h3>Before real withdrawals</h3>
+          <p>□ Backend authentication and database</p>
+          <p>□ Verified mining provider and payout data</p>
+          <p>□ Server-side balance and anti-fraud checks</p>
+          <p>□ Secure wallet/payment integration</p>
+          <p>□ Legal, tax, privacy and compliance review</p>
+          <p class="warning">Never ask users to submit seed phrases or private keys.</p>
+        </aside>
+      </div>
+    </section>
   </main>
+  <footer><a class="brand" href="#"><span class="coin small-coin">₿</span> BTC<span class="blue">Cloud</span></a><span>Starter template • Demo balances only</span><span>© <span id="year"></span> BTCCloud</span></footer>
+  <script src="app.js"></script>
 </body>
 </html>

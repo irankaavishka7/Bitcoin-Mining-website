@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bitcoin Mining Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #101522;
+      color: white;
+      text-align: center;
+    }
+    header {
+      background: #202a3d;
+      padding: 24px 12px;
+    }
+    h1 { color: #f7931a; }
+    main { padding: 24px 16px; }
+    .card {
+      background: #202a3d;
+      border-radius: 12px;
+      padding: 22px;
+      margin: 16px auto;
+      max-width: 420px;
+    }
+    .value {
+      font-size: 25px;
+      color: #f7931a;
+      font-weight: bold;
+    }
+    .note { color: #b9c2d3; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>₿ Bitcoin Mining</h1>
+    <p>Your Mining Dashboard</p>
+  </header>
+  <main>
+    <div class="card">
+      <h2>Mining Status</h2>
+      <p class="value">Not Connected</p>
+      <p class="note">No mining hardware connected yet.</p>
+    </div>
+    <div class="card">
+      <h2>Bitcoin Balance</h2>
+      <p class="value">0.00000000 BTC</p>
+      <p class="note">Your real mining balance will appear here when connected.</p>
+    </div>
+    <div class="card">
+      <h2>Hashrate</h2>
+      <p class="value">0 TH/s</p>
+      <p class="note">Waiting for mining hardware.</p>
+    </div>
+  </main>
+</body>
+</html>
